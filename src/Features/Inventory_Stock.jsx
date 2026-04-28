@@ -1,55 +1,207 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import { motion } from 'framer-motion';
-import { ClipboardList, ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
 
-const Inventory_Stock = () => {
-  const navigate = useNavigate();
+const InventoryStock = () => {
   return (
-    <div className="min-h-screen bg-white pt-24">
-      <Navbar />
-      <div className="max-w-7xl mx-auto px-6 py-12 relative">
-        <button 
-          onClick={() => navigate(-1)}
-          className="absolute right-6 top-12 p-3 rounded-full bg-slate-50 hover:bg-purple-600 hover:text-white text-slate-600 transition-all duration-300 shadow-sm hover:shadow-lg group z-10"
-        >
-          <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
-        </button>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="space-y-8"
-        >
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center">
-              <ClipboardList className="w-8 h-8 text-purple-600" />
+    <div className="bg-white text-slate-900">
+
+      {/* HERO */}
+      <section className="py-24 bg-gradient-to-br from-orange-50 to-white">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+          <div>
+            <h1 className="text-5xl font-bold leading-tight">
+              Smart <span className="text-orange-500">Inventory & Stock</span> Management
+            </h1>
+            <p className="mt-6 text-slate-500 text-lg">
+              Track ingredients, avoid shortages, and manage your kitchen inventory in real time.
+            </p>
+
+            <div className="mt-8 flex gap-4">
+              <button className="px-6 py-3 bg-orange-500 text-white rounded-xl">
+                Start Free Trial
+              </button>
+              <button className="px-6 py-3 border rounded-xl">
+                Book Demo
+              </button>
             </div>
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900">Inventory & Stock</h1>
           </div>
-          <p className="text-xl text-slate-500 max-w-3xl leading-relaxed">
-            Take full control of your kitchen supplies and reduce wastage with real-time inventory tracking. 
-            Monitor stock levels, manage vendors, and optimize food costs.
+
+          {/* SIMPLE INVENTORY PREVIEW */}
+          <div className="bg-white shadow-xl rounded-2xl p-6 space-y-4">
+            {[
+              { name: "Rice", qty: "10kg", status: "ok" },
+              { name: "Tomato", qty: "2kg", status: "low" },
+              { name: "Oil", qty: "5L", status: "ok" },
+              { name: "Paneer", qty: "1kg", status: "low" },
+            ].map((item, i) => (
+              <div key={i} className="flex justify-between items-center">
+                <span>{item.name}</span>
+                <span className="text-sm">{item.qty}</span>
+                <span
+                  className={`text-xs px-2 py-1 rounded ${item.status === "low"
+                    ? "bg-red-100 text-red-600"
+                    : "bg-green-100 text-green-600"
+                    }`}
+                >
+                  {item.status === "low" ? "Low Stock" : "In Stock"}
+                </span>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* PROBLEM */}
+      <section className="py-20 bg-white text-center">
+        <h2 className="text-4xl font-bold">Running Out of Ingredients Should Never Be a Surprise</h2>
+
+        <div className="grid md:grid-cols-4 gap-8 mt-12 max-w-6xl mx-auto px-6">
+          {[
+            "Stock runs out unexpectedly",
+            "Manual tracking errors",
+            "Food wastage",
+            "No visibility of inventory",
+          ].map((item, i) => (
+            <div key={i} className="p-6 bg-slate-50 rounded-xl">
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FEATURES */}
+      <section className="py-28 bg-slate-50">
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* Heading */}
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+        Powerful <span className="text-orange-500">Inventory Features</span>
+      </h2>
+      <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
+        Everything you need to manage stock efficiently and avoid shortages.
+      </p>
+    </div>
+
+    {/* Cards */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {[
+        {
+          title: "Real-Time Tracking",
+          desc: "Monitor your stock levels instantly across all items."
+        },
+        {
+          title: "Low Stock Alerts",
+          desc: "Get notified before ingredients run out."
+        },
+        {
+          title: "Auto Updates",
+          desc: "Stock updates automatically with every order."
+        },
+        {
+          title: "Supplier Management",
+          desc: "Manage vendors and restocking with ease."
+        },
+        {
+          title: "Usage Insights",
+          desc: "Track which ingredients are used the most."
+        },
+        {
+          title: "Waste Reduction",
+          desc: "Reduce food wastage with smart tracking."
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="group relative p-8 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden"
+        >
+
+          {/* Top Accent Bar */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+
+          {/* Icon */}
+          <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-orange-50 text-orange-500 text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500">
+            ⚡
+          </div>
+
+          {/* Title */}
+          <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-500 transition-colors">
+            {item.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-slate-500 leading-relaxed">
+            {item.desc}
           </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Real-time Tracking</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Automatically update stock levels as sales happen. Get instant alerts when ingredients are running low to prevent service interruptions.
-              </p>
-            </div>
-            <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Recipe Costing</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Break down dish costs by ingredient. Understand your margins and adjust prices or portions to maximize profitability.
-              </p>
-            </div>
+
+          {/* Learn More */}
+          <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-slate-300 group-hover:text-orange-500 transition-colors">
+            <span>LEARN MORE</span>
+            <div className="h-px w-8 bg-slate-200 group-hover:w-12 group-hover:bg-orange-500 transition-all duration-500" />
           </div>
-        </motion.div>
-      </div>
+
+          {/* Glow effect */}
+          <div className="absolute inset-0 bg-orange-500/5 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl" />
+
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-24 text-center">
+        <h2 className="text-4xl font-bold">How It Works</h2>
+
+        <div className="flex flex-col md:flex-row justify-center gap-8 mt-12">
+          {[
+            "Order Placed",
+            "Ingredients Used",
+            "Stock Updated",
+            "Alerts Generated",
+          ].map((step, i) => (
+            <div key={i} className="p-6 bg-white shadow rounded-xl">
+              {step}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* BENEFITS */}
+      <section className="py-24 bg-slate-50 text-center">
+        <h2 className="text-4xl font-bold">Why Restaurants Love It</h2>
+
+        <div className="flex justify-center gap-12 mt-12">
+          <div>
+            <h3 className="text-3xl font-bold text-orange-500">40%</h3>
+            <p className="text-sm text-slate-500">Less Wastage</p>
+          </div>
+
+          <div>
+            <h3 className="text-3xl font-bold text-orange-500">25%</h3>
+            <p className="text-sm text-slate-500">Better Control</p>
+          </div>
+
+          <div>
+            <h3 className="text-3xl font-bold text-orange-500">100%</h3>
+            <p className="text-sm text-slate-500">Real-Time Tracking</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 text-center bg-orange-500 text-white">
+        <h2 className="text-4xl font-bold">Never Run Out of Ingredients Again</h2>
+        <button className="mt-6 px-6 py-3 bg-white text-orange-500 rounded-xl">
+          Get Started
+        </button>
+      </section>
+
     </div>
   );
 };
 
-export default Inventory_Stock;
+export default InventoryStock;

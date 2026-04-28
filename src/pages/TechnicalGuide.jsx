@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Book, Terminal, ShoppingCart, Package, Users, UserCog, BarChart3 } from 'lucide-react';
-import Navbar from '../components/Navbar';
 
 const guideContent = {
   operations: {
@@ -75,7 +74,6 @@ const TechnicalGuide = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
       
       <main className="pt-24 pb-20 px-4">
         <div className="max-w-4xl mx-auto">

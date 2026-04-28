@@ -1,6 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import laptop from "../assets/laptop-mobile.png";
 import cloud from "../assets/cloud.png";
 import gsap from "gsap";
@@ -70,8 +69,6 @@ const Home = () => {
       {/* Decorative Background Blobs for soft tint */}
       <div className="absolute top-0 left-[-10%] w-[500px] h-[500px] bg-purple-200/20 blur-[120px] rounded-full -z-0" />
       <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-pink-200/20 blur-[150px] rounded-full -z-0" />
-
-      <Navbar />
 
       <main className="w-full pt-8 relative z-10">
         <img
@@ -545,13 +542,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <footer className="py-12 bg-darker border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-white text-sm">
-            © {new Date().getFullYear()} Restron Mitra. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };

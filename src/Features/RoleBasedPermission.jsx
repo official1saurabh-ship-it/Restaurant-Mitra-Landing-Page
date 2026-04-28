@@ -1,53 +1,195 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import { motion } from 'framer-motion';
-import { ShieldCheck, ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
 
 const RoleBasedPermission = () => {
-  const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-white pt-24">
-      <Navbar />
-      <div className="max-w-7xl mx-auto px-6 py-12 relative">
-        <button 
-          onClick={() => navigate(-1)}
-          className="absolute right-6 top-12 p-3 rounded-full bg-slate-50 hover:bg-purple-600 hover:text-white text-slate-600 transition-all duration-300 shadow-sm hover:shadow-lg group z-10"
-        >
-          <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+    <div className="bg-white text-slate-900">
+
+      {/* HERO */}
+      <section className="py-24 bg-gradient-to-br from-orange-50 via-white to-slate-50">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+
+          <div className="space-y-6">
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+              Secure Access with <br />
+              <span className="text-orange-500">Role-Based Permissions</span>
+            </h1>
+
+            <p className="text-slate-500 text-lg">
+              Control who can access what — from billing to reports — and keep your restaurant operations secure and organized.
+            </p>
+
+            <div className="flex gap-4 pt-4">
+              <button className="px-6 py-3 bg-orange-500 text-white rounded-xl">
+                Get Started
+              </button>
+              <button className="px-6 py-3 border rounded-xl">
+                Book Demo
+              </button>
+            </div>
+
+            <div className="flex gap-8 pt-6 text-sm text-slate-500">
+              <div>
+                <p className="text-xl font-bold text-slate-900">100%</p>
+                <p>Secure Access</p>
+              </div>
+              <div>
+                <p className="text-xl font-bold text-slate-900">Role-Based</p>
+                <p>Control System</p>
+              </div>
+            </div>
+          </div>
+
+          {/* VISUAL */}
+          <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md mx-auto">
+            <h3 className="font-bold mb-4">User Roles</h3>
+
+            {[
+              { role: "Admin", access: "Full Access" },
+              { role: "Manager", access: "Orders + Reports" },
+              { role: "Staff", access: "Orders Only" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex justify-between p-3 bg-slate-50 rounded-lg mb-3"
+              >
+                <span>{item.role}</span>
+                <span className="text-orange-500 text-sm">{item.access}</span>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* PROBLEM */}
+      <section className="py-28 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+
+          <h2 className="text-4xl font-bold mb-16">
+            Without Access Control, Everything Gets Messy
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              "Anyone can access sensitive data",
+              "No control over staff actions",
+              "Data misuse risk",
+              "Operational confusion",
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="p-6 bg-white rounded-xl shadow hover:shadow-xl transition"
+              >
+                ⚠️ {item}
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* FEATURES */}
+      <section className="py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold">Powerful Permission Controls</h2>
+            <p className="text-slate-500 mt-4">
+              Manage access smartly and keep your operations secure.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Custom Roles",
+                desc: "Create roles based on your business needs.",
+              },
+              {
+                title: "Access Control",
+                desc: "Control who can access which features.",
+              },
+              {
+                title: "Secure Data",
+                desc: "Protect sensitive information from misuse.",
+              },
+              {
+                title: "Staff Management",
+                desc: "Assign permissions easily to employees.",
+              },
+              {
+                title: "Activity Control",
+                desc: "Restrict actions like editing or deleting data.",
+              },
+              {
+                title: "Flexible Permissions",
+                desc: "Modify access anytime as needed.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="p-6 bg-slate-50 rounded-xl hover:shadow-xl transition"
+              >
+                <h3 className="font-bold mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-500">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-28 bg-slate-50 text-center">
+        <h2 className="text-4xl font-bold mb-16">How It Works</h2>
+
+        <div className="flex flex-col md:flex-row justify-center gap-8 px-6">
+          {[
+            "Create Roles",
+            "Assign Permissions",
+            "Users Login",
+            "Access Controlled",
+          ].map((step, i) => (
+            <div
+              key={i}
+              className="p-6 bg-white rounded-xl shadow hover:shadow-xl transition"
+            >
+              {step}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* BENEFITS */}
+      <section className="py-24 bg-white text-center">
+        <h2 className="text-4xl font-bold">Why It Matters</h2>
+
+        <div className="flex justify-center gap-12 mt-12">
+          <div>
+            <h3 className="text-3xl font-bold text-orange-500">100%</h3>
+            <p className="text-sm text-slate-500">Data Security</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-orange-500">50%</h3>
+            <p className="text-sm text-slate-500">Less Errors</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-orange-500">3x</h3>
+            <p className="text-sm text-slate-500">Better Control</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 bg-orange-500 text-white text-center">
+        <h2 className="text-4xl font-bold">
+          Control Your Restaurant with Confidence
+        </h2>
+        <button className="mt-6 px-6 py-3 bg-white text-orange-500 rounded-xl">
+          Get Started
         </button>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="space-y-8"
-        >
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center">
-              <ShieldCheck className="w-8 h-8 text-purple-600" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900">Role-Based Permissions</h1>
-          </div>
-          <p className="text-xl text-slate-500 max-w-3xl leading-relaxed">
-            Secure your restaurant operations by defining specific access levels for your staff. 
-            Ensure that sensitive data and critical settings are only accessible by authorized personnel.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Granular Access Control</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Assign specific roles like Admin, Manager, Cashier, or Waiter. Control exactly which modules and features each role can view or modify.
-              </p>
-            </div>
-            <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Activity Audit Logs</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Track every action taken within the system. Maintain accountability with detailed logs of who accessed what and when changes were made.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+      </section>
+
     </div>
   );
 };
