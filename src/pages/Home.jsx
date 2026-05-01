@@ -428,10 +428,7 @@ const Home = () => {
                   {item.desc}
                 </p>
 
-                <div className="mt-8 flex items-center text-sm font-bold text-slate-300 group-hover:text-purple-600 transition-colors gap-2">
-                  <span>LEARN MORE</span>
-                  <div className="h-px w-8 bg-slate-200 group-hover:w-12 group-hover:bg-purple-600 transition-all duration-500" />
-                </div>
+
               </motion.div>
             ))}
           </div>
